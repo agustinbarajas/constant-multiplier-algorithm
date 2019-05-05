@@ -1,0 +1,53 @@
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:controller="constantmultiplier.ConstantMultiplierController" stylesheets="@ConstantMultiplierStyle.css"
+            styleClass="background-app" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <HBox alignment="center" minHeight="100" BorderPane.alignment="CENTER">
+            <Label text="Generator of pseudo-random numbers"
+                   styleClass="title-app"/>
+        </HBox>
+    </top>
+    <center>
+        <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <padding>
+                <Insets left="10" top="10" right="10" bottom="10"/>
+            </padding>
+            <Label text="Quantity of numbers" GridPane.columnIndex="0" GridPane.rowIndex="0"
+            styleClass="label-app"/>
+            <TextField fx:id="numbersQuantity" GridPane.columnIndex="1" GridPane.rowIndex="0"
+            styleClass="text-field-app"/>
+            <Label text="Seed (X0)" GridPane.columnIndex="0" GridPane.rowIndex="1"
+            styleClass="label-app"/>
+            <TextField fx:id="seed" GridPane.columnIndex="1" GridPane.rowIndex="1"
+            styleClass="text-field-app" promptText="D digits than D > 3"/>
+            <Label text="Constant (a)" GridPane.columnIndex="0" GridPane.rowIndex="2"
+            styleClass="label-app"/>
+            <TextField fx:id="constant" GridPane.columnIndex="1" GridPane.rowIndex="2"
+            styleClass="text-field-app" promptText="D digits than D > 3"/>
+            <Button fx:id="generate" onAction="#generateRandomNumbers" text="Generate numbers" GridPane.columnIndex="1" GridPane.rowIndex="3"
+            styleClass="button-app"/>
+        </GridPane>
+    </center>
+    <right>
+        <VBox alignment="CENTER">
+            <TextArea fx:id="numberList" maxWidth="150" minHeight="270" styleClass="numbers-list-app" editable="false"/>
+            <padding>
+                <Insets right="15"/>
+            </padding>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER" minHeight="60">
+            <Label fx:id="errors" styleClass="label-error-app"/>
+        </HBox>
+    </bottom>
+</BorderPane>
